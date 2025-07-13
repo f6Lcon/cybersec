@@ -61,3 +61,7 @@ nmap -oA 123.1.1
 nmap -6 scan IPV^ targets
 nmap -proxies proxy 1 URL, proxy 2 URL run in targets with proxies
 nmap -open shou open ports only
+
+
+
+ What is the command we need to run in order to display the 'ftp' client help menu? 
