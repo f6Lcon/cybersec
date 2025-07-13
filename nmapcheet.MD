@@ -1,67 +1,113 @@
-**Port specific options**
--p nmap -p 23 123.1.1 --port scaning a specific port [23 in this case]
--p nmap -p 23-100 123.1.1 --poer scanning specific port range
--p nmap -pU:110, T:23-25,443 123.1.1 U-UDP, T-TCP, diffrent port types scan
--p- nmap -p- 1223.1.1 port scan for all ports
--p nmap -smtp, https 123.1.1 portscan for all specified protocals
--F nmap -F 1223.1.1 Fast port scan for speed up
--p "*" nmap -p "*" frp 123.1.1 port scan using name
--r nmap -r 123.1.1 sequential port scan
+# 🛡️ Nmap Cheatsheet
 
-**Host /123.1.1 Discvery**
--sL nmap 123.1.1 -sL List123.1.1 without scanning
--sn nmap 123.1.1 -sn Disable port scanning
--Pn nmap 123.1.1 -Pn port scan only and no gost discovery
--PS nmap 123.1.1 -PS22-225,80 TCP SYN discovery on specified port
--PA nmap 123.1.1 -PA22-25,80 TCP ACK discovery on specified port
--PU nmap 123.1.1 -PU53 UDP discovery on specified port
--PR nmap1 23.1.1/8 -PR ARP discovery within local networks
--n nmap 123.1.1 -n no DNS resolution
+This is a comprehensive reference for commonly used **Nmap** commands, including port scanning, host discovery, version detection, evasion techniques, output formatting, and more.
 
+---
 
-**Version Detection**
--sV nmap 123.1.1 -sV Try to find the version of the seervice running on port
--sV --version-intensity nmap 123.1.1 -sV --version-intensity 6 Intensity level [0-9]
--sV --version-all nmap 123.1.1 -sV --version-all set intensity version to 9
--sV --version-light nmap 123.1.1 -sV --version-light enanle light mode
--A nmap 123.1.1 -A Enable OS detection, version detection , scriptscanning and tracerout
--O nmap 123.1.1 -O Remote OS detection
+## 📍 Port Specific Scanning
 
-**Firewall Proffing**
-nmap -f [123.1.1] scan fragment packets
-nmap -mtu [MTU] [123.1.1] specify mMTU
-nma- -sI [zombie] [123.1.1] scan idle zombie
-nmap -source-port [PORT] [123.1.1] manual source port - specify
-nmap -data-length [size] [123.1.1] randomly apend data
-nmap -randomizze-hosts [172.1.1] bad checksum
+| Command | Description |
+|--------|-------------|
+| `nmap -p 23 123.1.1` | Scan specific port 23 |
+| `nmap -p 23-100 123.1.1` | Scan ports 23 through 100 |
+| `nmap -pU:110,T:23-25,443 123.1.1` | Scan specific UDP and TCP ports |
+| `nmap -p- 123.1.1` | Scan all 65535 ports |
+| `nmap -p smtp,https 123.1.1` | Scan by service name |
+| `nmap -F 123.1.1` | Fast scan (top 100 ports) |
+| `nmap -p "*" 123.1.1` | Scan using all known service names |
+| `nmap -r 123.1.1` | Scan ports sequentially |
 
-**Nmap Timing Options**
-nmap -T0 123.1.1 Slowest Scan
-nmap -T5 123.1.1 Very aggresive scan
+---
 
-**Scanning Types**
--sS nmap 123.1.1 -sS TCP SYN Port scan
--sT nmap 123.1.1 -sT TCP Connect port scan
--sA nmap 123.1.1 -sA TCP SCK port scan
--sU nmap -123.1.1 -sU  UDP port scan
--Sf nmap 0Sf 123.1.1 TCP FIN scan
--sX nmap -sX 123.1.1 XMAS scan
--Sp nmap -sP 123.1.1 ping scan
--SL nmap -SL 123.1.1 list scan
+## 🌐 Host Discovery
 
+| Command | Description |
+|--------|-------------|
+| `nmap -sL 123.1.1` | List targets without scanning |
+| `nmap -sn 123.1.1` | Ping scan only (no port scan) |
+| `nmap -Pn 123.1.1` | Skip host discovery (assume host is up) |
+| `nmap -PS22-25,80 123.1.1` | TCP SYN discovery on ports 22–25, 80 |
+| `nmap -PA22-25,80 123.1.1` | TCP ACK discovery |
+| `nmap -PU53 123.1.1` | UDP discovery on port 53 |
+| `nmap -PR 123.1.1/8` | ARP discovery in local networks |
+| `nmap -n 123.1.1` | Disable DNS resolution |
 
-**NMAP output fomarts**
-Default /Normal output nmap -oN scan.txt 123.1.1
-XML nmap -OX scan.xml 123.1.1
-Grepable fomart snmap -oG grep.txt 123.1.1
-All fomarts
-nmap -oA 123.1.1
+---
 
-**Miscellaneous commands**
-nmap -6 scan IPV^ targets
-nmap -proxies proxy 1 URL, proxy 2 URL run in targets with proxies
-nmap -open shou open ports only
+## 🔍 Version Detection
 
+| Command | Description |
+|--------|-------------|
+| `nmap -sV 123.1.1` | Detect service versions |
+| `nmap -sV --version-intensity 6 123.1.1` | Set version detection intensity (0–9) |
+| `nmap -sV --version-all 123.1.1` | Use all probes (max intensity) |
+| `nmap -sV --version-light 123.1.1` | Lighter version detection |
+| `nmap -A 123.1.1` | Aggressive scan (OS, version, script, traceroute) |
+| `nmap -O 123.1.1` | OS detection only |
 
+---
 
- What is the command we need to run in order to display the 'ftp' client help menu? 
+## 🧱 Firewall Evasion & Bypass
+
+| Command | Description |
+|--------|-------------|
+| `nmap -f 123.1.1` | Fragment packets |
+| `nmap --mtu [MTU] 123.1.1` | Set custom MTU size |
+| `nmap -sI [zombie] 123.1.1` | Idle zombie scan |
+| `nmap --source-port [PORT] 123.1.1` | Use specific source port |
+| `nmap --data-length [SIZE] 123.1.1` | Append random data |
+| `nmap --randomize-hosts 172.1.1.0/24` | Randomize host scanning order |
+
+---
+
+## ⏱️ Timing Options
+
+| Command | Description |
+|--------|-------------|
+| `nmap -T0 123.1.1` | Paranoid (slowest scan) |
+| `nmap -T5 123.1.1` | Insane (fastest scan) |
+
+---
+
+## ⚙️ Scan Types
+
+| Command | Description |
+|--------|-------------|
+| `nmap -sS 123.1.1` | TCP SYN scan (stealth) |
+| `nmap -sT 123.1.1` | TCP connect scan |
+| `nmap -sA 123.1.1` | TCP ACK scan |
+| `nmap -sU 123.1.1` | UDP scan |
+| `nmap -sF 123.1.1` | TCP FIN scan |
+| `nmap -sX 123.1.1` | Xmas scan |
+| `nmap -sP 123.1.1` | Ping scan (legacy) |
+| `nmap -sL 123.1.1` | List scan (no packets sent) |
+
+---
+
+## 📝 Output Formats
+
+| Command | Description |
+|--------|-------------|
+| `nmap -oN scan.txt 123.1.1` | Normal output |
+| `nmap -oX scan.xml 123.1.1` | XML format |
+| `nmap -oG grep.txt 123.1.1` | Grepable format |
+| `nmap -oA scan 123.1.1` | All formats (`.nmap`, `.xml`, `.gnmap`) |
+
+---
+
+## 🧩 Miscellaneous Options
+
+| Command | Description |
+|--------|-------------|
+| `nmap -6 123.1.1` | Scan IPv6 targets |
+| `nmap --proxies proxy1,proxy2 123.1.1` | Use proxies |
+| `nmap --open 123.1.1` | Show only open ports |
+
+---
+
+## ❓ How to Display `ftp` Client Help Menu
+
+To show the FTP client help menu, use:
+
+```bash
+ftp --help
