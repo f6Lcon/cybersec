@@ -21,8 +21,8 @@ Welcome to my Hack The Box (HTB) Red Team Labs documentation. This markdown file
 
 | Lab         | Status | Notes |
 |-------------|--------|-------|
-| **Dante**       | 🟡 In Progress / ✅ Done | Good intro to AD enumeration |
-| **Solar**       | ⬜ Not Started | Focus on lateral movement |
+| **Dante**       | ✅ Done | Good intro to AD enumeration |
+| **Solar**       | 🟡 In Progress | Focus on lateral movement |
 | **Odyssey**     | ⬜ Not Started | Multi-domain environment |
 | **Ascension**   | ⬜ Not Started | AV/EDR evasion techniques |
 | **RPG**         | ⬜ Not Started | C2 pivoting and privilege escalation |
