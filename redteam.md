@@ -10,12 +10,12 @@ A curated collection of cheat sheets, labs, and notes to support your offensive 
 
 | Tool         | File                                    |
 |--------------|------------------------------------------|
-| Burp Suite   | [burpsuite-cheatsheet.md](cheatsheets/burpsuite-cheatsheet.md) |
-| Metasploit   | [metasploit-cheatsheet.md](cheatsheets/metasploit-cheatsheet.md) |
-| Wireshark    | [wireshark-cheatsheet.md](cheatsheets/wireshark-cheatsheet.md) |
-| Maltego      | [maltego-readme.md](cheatsheets/maltego-readme.md) |
-| Ports        | [common-ports.md](cheatsheets/common-ports.md) |
-| HTTP Codes   | [http-status-codes.md](cheatsheets/http-status-codes.md) |
+| Burp Suite   | [burpsuite-cheatsheet.md](toolsCheatSheets/burpsuite.md) |
+| Metasploit   | [metasploit-cheatsheet.md](toolsCheatSheets/metasploit.md) |
+| Wireshark    | [wireshark-cheatsheet.md](toolsCheatSheets/wireshark.md) |
+| Maltego      | [maltego-readme.md](toolsCheatSheets/maltego.md) |
+| Ports        | [common-ports.md](cheatSheets/common-ports.md) |
+| HTTP Codes   | [http-status-codes.md](cheatSheets/http-status-codes.md) |
 
 ### 🔬 HTB Red Team Labs
 
